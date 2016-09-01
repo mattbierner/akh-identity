@@ -4,15 +4,15 @@ const Identity = require('../index').Identity
 
 describe('Identity', () => {
     it('should wrap simple values', () => {
-        assert.strictEqual(3, Identity.runIdentity(Identity.of(3)))
-        assert.strictEqual(false, Identity.runIdentity(Identity.of(false)))
-        assert.strictEqual('abc', Identity.runIdentity(Identity.of('abc')))
-        assert.strictEqual(undefined, Identity.runIdentity(Identity.of(undefined)))
+        assert.strictEqual(3, Identity.run(Identity.of(3)))
+        assert.strictEqual(false, Identity.run(Identity.of(false)))
+        assert.strictEqual('abc', Identity.run(Identity.of('abc')))
+        assert.strictEqual(undefined, Identity.run(Identity.of(undefined)))
     })
 
     it('should wrap complex types values', () => {
         const a = {};
-        assert.strictEqual(a, Identity.runIdentity(Identity.of(a)))
+        assert.strictEqual(a, Identity.run(Identity.of(a)))
     })
 
     it('should thread values through chain', () => {
@@ -20,7 +20,11 @@ describe('Identity', () => {
 
         assert.strictEqual(
             8,
-            Identity.runIdentity(c))
+            Identity.run(c))
+        assert.strictEqual(
+            8,
+            c.run())
+
     })
 
     it('should chain in correct order', () => {
@@ -30,7 +34,7 @@ describe('Identity', () => {
 
         assert.strictEqual(
             4,
-            Identity.runIdentity(c))
+            Identity.run(c))
     })
 
     it('should map', () => {
@@ -40,6 +44,6 @@ describe('Identity', () => {
 
         assert.strictEqual(
             10,
-            Identity.runIdentity(c))
+            Identity.run(c))
     })
 }) 

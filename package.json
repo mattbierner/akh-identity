@@ -1,6 +1,6 @@
 {
   "name": "akh.identity",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Akh identity monad",
   "author": "Matt Bierner",
   "license": "MIT",

@@ -43,12 +43,16 @@ const Identity = m => {
     spec.Transformer(Instance, m,
         x => new Instance(x))
     
+    Instance.prototype.run = function() {
+        return Identity.run(this)
+    }
+
     return Instance
 }
 
 /**
  * Run an identity computation.
  */
-Identity.runIdentityT = runIdentityT
+Identity.run = runIdentityT
 
 module.exports = Identity;

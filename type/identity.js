@@ -12,12 +12,16 @@ spec.Monad(Identity,
     x => new Identity(x),
     
     function chain(f) {
-        return f(Identity.runIdentity(this))
+        return f(Identity.run(this))
     })
 
 /**
  * Run an identity computation.
  */
-Identity.runIdentity = x => x._value
+Identity.run = x => x._value
+
+Identity.prototype.run = function() {
+    return this._value
+}
 
 module.exports = Identity
