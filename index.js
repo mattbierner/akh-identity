@@ -1,12 +1,12 @@
 "use strict"
 
-const identityT = require('./trans/identity');
-const identity = require('./type/identity');
+const IdentityT = require('./trans/identity');
+const Identity = require('./type/identity');
 
 module.exports = {
-    IdentityT: identityT,
-    Identity: identity,
+    IdentityT: IdentityT,
+    Identity: Identity,
 
-    trans: { identity: identityT },
-    type: { identity: identity }
+    trans: { identity: IdentityT },
+    type: { identity: Identity }
 };

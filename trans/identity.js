@@ -17,7 +17,7 @@ const runIdentityT = x => x._value
  * 
  * @param m Base monad.
  */
-const Identity = m => {
+const IdentityT = m => {
     const Instance = function(x) {
         this._value = x
     }
@@ -27,17 +27,15 @@ const Identity = m => {
         
         function(f) {
             return new Instance(
-                runIdentityT(this)
-                    .chain(x => f(runIdentityT(x))))
+                runIdentityT(this).chain(x => runIdentityT(f(x))))
         })
     
     spec.Monoid(Instance,
         new Instance(m.zero),
         
         function(b) {
-            new Instance (
-                runIdentityT(this)
-                    .concat (runIdentityT(b)))
+            return new Instance(
+                runIdentityT(this).concat(runIdentityT(b)))
         })
     
     spec.Transformer(Instance, m,
@@ -53,6 +51,6 @@ const Identity = m => {
 /**
  * Run an identity computation.
  */
-Identity.run = runIdentityT
+IdentityT.run = runIdentityT
 
-module.exports = Identity;
+module.exports = IdentityT

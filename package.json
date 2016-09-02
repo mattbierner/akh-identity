@@ -1,28 +1,29 @@
 {
-    "name": "akh.identity",
-    "version": "0.1.0",
-    "description": "Akh identity monad",
-    "author": "Matt Bierner",
-    "license": "MIT",
-    "keywords": [
-        "monad transformer",
-        "monad",
-        "akh"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mattbierner/akh-identity.git"
-    },
-    "bugs": {
-        "url": "https://github.com/mattbierner/akh-identity/issues"
-    },
-    "main": "index.js",
-    "dependencies": {
-        "akh.core": "0.x",
-        "akh.core.spec": "0.x"
-    },
-    "devDependencies": {
-        "chai": "*",
-        "mocha": "*"
-    }
+  "name": "akh.identity",
+  "version": "0.1.1",
+  "description": "Akh identity monad",
+  "author": "Matt Bierner",
+  "license": "MIT",
+  "keywords": [
+    "monad transformer",
+    "monad",
+    "akh"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattbierner/akh-identity.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mattbierner/akh-identity/issues"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "akh.core": "0.x",
+    "akh.core.spec": "0.x"
+  },
+  "devDependencies": {
+    "akh.list": "0.0.0",
+    "chai": "*",
+    "mocha": "*"
+  }
 }
